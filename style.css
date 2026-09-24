@@ -1,1 +1,68 @@
-
+body {
+margin: 0;
+background-color: black;
+font-family: Arial, sans-serif;
+color: white;
+text-align: center;
+}
+#forest-container {
+position: relative;
+width: 100vw;
+height: 100vh;
+overflow: hidden;
+}
+#forest-bg {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: opacity 1.5s ease;
+}
+#chest-closed, #chest-opened {
+position: absolute;
+width: 300px;
+height: auto;
+left: 50%;
+top: 65%;
+transform: translate(-50%, -50%);
+cursor: pointer;
+}
+#chest-opened {
+display: none;
+}
+/* Mist effect */
+.mist-active {
+animation: mistFade 3s ease-in-out forwards;
+}
+@keyframes mistFade {
+0% { opacity: 0; }
+50% { opacity: 1; }
+100% { opacity: 1; }
+}
+/* Forest fade effect */
+.forest-fade {
+opacity: 0.4;
+}
+/* Code page */
+#code-container {
+margin-top: 150px;
+}
+#code-input {
+padding: 10px;
+font-size: 18px;
+width: 200px;
+}
+#submit-code, #reset-btn {
+padding: 10px 20px;
+margin: 10px;
+font-size: 18px;
+cursor: pointer;
+}
+#code-message {
+margin-top: 20px;
+font-size: 22px;
+}
+/* Purple eerie glow */
+.eerie-glow {
+color: #c280ff;
+text-shadow: 0px 0px 10px #a050ff, 0px 0px 25px #6000ff;
+}
