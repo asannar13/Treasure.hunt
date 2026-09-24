@@ -1,11 +1,42 @@
-Forest Treasure Hunt
-style.css
-script.js
-<Forest background>
-https://raw.githubusercontent.com/asannar13/newsletter-game/main/images/forest.png
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forest Treasure Hunt</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main id="forest-container">
+    <img
+      id="forest-bg"
+      src="images/forest.png"
+      alt="A mysterious forest"
+    >
 
-<Closed chest>
-https://raw.githubusercontent.com/asannar13/newsletter-game/main/images/chest_closed.png
+    <section class="treasure-area">
+      <p id="chest-instruction">Click the treasure chest to begin</p>
 
-<Open chest>
-https://raw.githubusercontent.com/asannar13/newsletter-game/main/images/chest_opened.png
+      <button
+        id="chest-button"
+        type="button"
+        aria-label="Open the treasure chest"
+      >
+        <img
+          id="chest-closed"
+          src="images/chest_closed.png"
+          alt="Closed treasure chest"
+        >
+
+        <img
+          id="chest-opened"
+          src="images/chest_opened.png"
+          alt="Open treasure chest"
+          hidden
+        >
+      </button>
+    </section>
+  </main>
+</body>
+</html>
