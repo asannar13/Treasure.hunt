@@ -3,21 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forest Treasure Hunt</title>
+  <title>Treasure Chest - Spooky Version</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <main id="forest-container">
+    <div class="title-area">
+      <h1>TREASURE CHEST - SPOOKY VERSION</h1>
+      <p>DARE TO UNCOVER THE SECRET?</p>
+    </div>
+
     <img
       id="forest-bg"
       src="images/forest.png"
-      alt="A mysterious forest"
+      alt="A spooky forest"
     >
 
-    <section class="treasure-area">
-      <p id="chest-instruction">Click the treasure chest to begin</p>
+    <div class="mist mist-one"></div>
+    <div class="mist mist-two"></div>
+    <div class="sparkles" aria-hidden="true"></div>
 
+    <section class="treasure-area">
       <button
         id="chest-button"
         type="button"
@@ -36,6 +51,10 @@
           hidden
         >
       </button>
+
+      <p id="chest-instruction">
+        CLICK THE CHEST TO UNLOCK THE SECRET
+      </p>
     </section>
   </main>
 </body>
