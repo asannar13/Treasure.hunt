@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const chestButton = document.querySelector("#chest-button");
   const chestClosed = document.querySelector("#chest-closed");
   const chestOpened = document.querySelector("#chest-opened");
-  const forest = document.querySelector("#forest-bg");
   const instruction = document.querySelector("#chest-instruction");
+  const mist = document.querySelectorAll(".mist");
+  const sparkles = document.querySelector(".sparkles");
 
   chestButton?.addEventListener("click", () => {
     chestButton.disabled = true;
@@ -11,16 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
     chestClosed.hidden = true;
     chestOpened.hidden = false;
 
-    forest?.classList.add("forest-fade");
-    chestOpened.classList.add("mist-active");
+    mist.forEach((item) => {
+      item.classList.add("mist-active");
+    });
+
+    sparkles?.classList.add("sparkles-active");
 
     if (instruction) {
-      instruction.textContent = "The chest is open...";
+      instruction.textContent = "THE CHEST IS OPENING...";
     }
 
     window.setTimeout(() => {
       window.location.assign("code.html");
-    }, 1500);
+    }, 2200);
   });
 
   const codeForm = document.querySelector("#code-form");
@@ -39,12 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isCorrect) {
       message.textContent =
-        "Congratulations! You solved the riddle. Please contact Ashley with this phrase to claim your prize: Phantom Plates of the Hollow Highway";
+        "CONGRATULATIONS! You solved the riddle. Contact Ashley with this phrase to claim your prize: Phantom Plates of the Hollow Highway";
 
       codeInput.disabled = true;
     } else {
       message.textContent =
-        "Incorrect code. Check the clues in the newsletter and try again.";
+        "THE CHEST REMAINS LOCKED. CHECK THE NEWSLETTER CLUES AND TRY AGAIN.";
     }
   });
 
