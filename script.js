@@ -1,45 +1,54 @@
-document.addEventListener("DOMContentLoaded", function() {
-const forest = document.getElementById("forest-bg");
-const chestClosed = document.getElementById("chest-closed");
-const chestOpened = document.getElementById("chest-opened");
+document.addEventListener("DOMContentLoaded", () => {
+  const chestButton = document.querySelector("#chest-button");
+  const chestClosed = document.querySelector("#chest-closed");
+  const chestOpened = document.querySelector("#chest-opened");
+  const forest = document.querySelector("#forest-bg");
+  const instruction = document.querySelector("#chest-instruction");
 
-if (chestClosed) {
-    chestClosed.addEventListener("click", () => {
+  chestButton?.addEventListener("click", () => {
+    chestButton.disabled = true;
 
-        forest.classList.add("forest-fade");
+    chestClosed.hidden = true;
+    chestOpened.hidden = false;
 
-        chestClosed.style.display = "none";
-        chestOpened.style.display = "block";
-        chestOpened.classList.add("mist-active");
+    forest?.classList.add("forest-fade");
+    chestOpened.classList.add("mist-active");
 
-        setTimeout(() => {
-            window.location.href = "code.html";
-        }, 3000);
-    });
-}
+    if (instruction) {
+      instruction.textContent = "The chest is open...";
+    }
 
-const submitBtn = document.getElementById("submit-code");
-const resetBtn = document.getElementById("reset-btn");
+    window.setTimeout(() => {
+      window.location.assign("code.html");
+    }, 1500);
+  });
 
-if (submitBtn) {
-    submitBtn.addEventListener("click", () => {
-        const code = document.getElementById("code-input").value;
-        const message = document.getElementById("code-message");
+  const codeForm = document.querySelector("#code-form");
+  const codeInput = document.querySelector("#code-input");
+  const message = document.querySelector("#code-message");
+  const resetButton = document.querySelector("#reset-btn");
 
-        if (code === "103126") {
-            message.textContent = "Congratulations! Tell Ashley: Phantom Plates of the Hollow Highway";
-            message.classList.add("eerie-glow");
-        } else {
-            message.textContent = "Incorrect code. Try again.";
-            message.classList.remove("eerie-glow");
-        }
-    });
-}
+  codeForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-        window.location.href = "index.html";
-    });
-}
+    const code = codeInput.value.trim();
+    const isCorrect = code === "103126";
 
+    message.classList.toggle("eerie-glow", isCorrect);
+    message.classList.toggle("error", !isCorrect);
+
+    if (isCorrect) {
+      message.textContent =
+        "Congratulations! You solved the riddle. Please contact Ashley with this phrase to claim your prize: Phantom Plates of the Hollow Highway";
+
+      codeInput.disabled = true;
+    } else {
+      message.textContent =
+        "Incorrect code. Check the clues in the newsletter and try again.";
+    }
+  });
+
+  resetButton?.addEventListener("click", () => {
+    window.location.assign("index.html");
+  });
 });
