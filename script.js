@@ -4,8 +4,10 @@ const chestClosed = document.getElementById("chest-closed");
 const chestOpened = document.getElementById("chest-opened");
 
 if (chestClosed) {
-    chestClosed.addEventListener("click", function() {
+    chestClosed.addEventListener("click", () => {
+
         forest.classList.add("forest-fade");
+
         chestClosed.style.display = "none";
         chestOpened.style.display = "block";
         chestOpened.classList.add("mist-active");
@@ -20,7 +22,7 @@ const submitBtn = document.getElementById("submit-code");
 const resetBtn = document.getElementById("reset-btn");
 
 if (submitBtn) {
-    submitBtn.addEventListener("click", function() {
+    submitBtn.addEventListener("click", () => {
         const code = document.getElementById("code-input").value;
         const message = document.getElementById("code-message");
 
@@ -35,7 +37,7 @@ if (submitBtn) {
 }
 
 if (resetBtn) {
-    resetBtn.addEventListener("click", function() {
+    resetBtn.addEventListener("click", () => {
         window.location.href = "index.html";
     });
 }
