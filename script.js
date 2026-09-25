@@ -8,19 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   chestButton?.addEventListener("click", () => {
     chestButton.disabled = true;
-
     chestClosed.hidden = true;
     chestOpened.hidden = false;
 
-    mist.forEach((item) => {
-      item.classList.add("mist-active");
-    });
-
+    mist.forEach((item) => item.classList.add("mist-active"));
     sparkles?.classList.add("sparkles-active");
 
-    if (instruction) {
-      instruction.textContent = "THE CHEST IS OPENING...";
-    }
+    if (instruction) instruction.textContent = "THE CHEST IS OPENING...";
 
     window.setTimeout(() => {
       window.location.assign("code.html");
@@ -34,21 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   codeForm?.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const code = codeInput.value.trim();
-    const isCorrect = code === "103126";
+    const isCorrect = codeInput.value.trim() === "103126";
 
     message.classList.toggle("eerie-glow", isCorrect);
     message.classList.toggle("error", !isCorrect);
 
     if (isCorrect) {
-      message.textContent =
-        "CONGRATULATIONS! You solved the riddle. Contact Ashley with this phrase to claim your prize: Phantom Plates of the Hollow Highway";
-
+      message.textContent = "CONGRATULATIONS! You solved the riddle. Contact Ashley with this phrase to claim your prize: Phantom Plates of the Hollow Highway";
       codeInput.disabled = true;
     } else {
-      message.textContent =
-        "THE CHEST REMAINS LOCKED. CHECK THE NEWSLETTER CLUES AND TRY AGAIN.";
+      message.textContent = "THE CHEST REMAINS LOCKED. CHECK THE NEWSLETTER CLUES AND TRY AGAIN.";
     }
   });
 
